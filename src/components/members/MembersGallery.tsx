@@ -54,16 +54,9 @@ export function MembersGallery() {
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-black/10 opacity-60 group-hover:opacity-80 transition-opacity" />
 
-                    {/* Number badge */}
-                    <div className="absolute top-2.5 left-2.5 z-10">
-                      <span className="px-2 py-0.5 rounded-md bg-background/80 backdrop-blur-md text-white font-mono text-[10px] font-bold border border-white/10">
-                        0{idx + 1}
-                      </span>
-                    </div>
-
                     {/* Instrument badge */}
                     <div className="absolute bottom-2.5 left-2.5 z-10">
-                      <span className="px-2 py-0.5 rounded-md bg-accent/90 text-white font-mono text-[9px] sm:text-[10px] font-bold uppercase tracking-wider">
+                      <span className="px-2.5 py-0.5 rounded-md bg-accent/90 text-white font-mono text-[9px] sm:text-[10px] font-bold uppercase tracking-wider shadow-md">
                         {member.instrument}
                       </span>
                     </div>

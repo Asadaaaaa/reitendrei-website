@@ -25,7 +25,7 @@ export function MemberDetailModal({ member, isOpen, onClose }: MemberDetailModal
             />
           </div>
           <div className="flex items-center justify-between font-mono text-[11px] text-white/40">
-            <span className="text-accent font-bold">MEMBER // {member.number}</span>
+            <span className="text-accent font-bold">BAND PERSONNEL</span>
             <span className="uppercase">{member.instrument}</span>
           </div>
         </div>
