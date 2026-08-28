@@ -30,17 +30,17 @@ export function MembersGallery() {
               </h2>
             </div>
             <p className="text-xs sm:text-sm text-white/40 max-w-xs leading-relaxed flex-shrink-0">
-              4-piece from Bekasi. Click on any member to view their sonic role and profile.
+              5-piece unit from Bekasi. Click on any member to view their sonic role and profile.
             </p>
           </div>
         </Reveal>
 
-        {/* Symmetrical 4-Member Grid — 2-col mobile, 4-col desktop */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 md:gap-5 items-stretch">
+        {/* Symmetrical 5-Member Grid — 2-col mobile, 3-col tablet, 5-col desktop */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-4 items-stretch">
           {members.map((member, idx) => (
-            <Reveal key={member.id} direction="up" delay={idx * 0.08} className="h-full">
+            <Reveal key={member.id} direction="up" delay={idx * 0.06} className="h-full">
               <div
-                className="group relative rounded-2xl overflow-hidden bg-surface border border-white/8 p-3 sm:p-4 flex flex-col justify-between h-full cursor-pointer hover:border-accent/40 transition-all duration-500 shadow-xl hover:-translate-y-1.5"
+                className="group relative rounded-2xl overflow-hidden bg-surface border border-white/8 p-3 sm:p-3.5 flex flex-col justify-between h-full cursor-pointer hover:border-accent/40 transition-all duration-500 shadow-xl hover:-translate-y-1.5"
                 onClick={() => setSelectedMember(member)}
                 data-cursor="view"
               >
@@ -63,14 +63,14 @@ export function MembersGallery() {
 
                     {/* Instrument badge */}
                     <div className="absolute bottom-2.5 left-2.5 z-10">
-                      <span className="px-2 py-0.5 rounded-md bg-accent/90 text-white font-mono text-[10px] font-bold uppercase tracking-wider">
+                      <span className="px-2 py-0.5 rounded-md bg-accent/90 text-white font-mono text-[9px] sm:text-[10px] font-bold uppercase tracking-wider">
                         {member.instrument}
                       </span>
                     </div>
                   </div>
 
-                  {/* Name & Role with uniform min-height for perfect symmetry */}
-                  <div className="space-y-0.5 min-h-[52px] sm:min-h-[58px] flex flex-col justify-start">
+                  {/* Name & Role with uniform min-height for symmetry */}
+                  <div className="space-y-0.5 min-h-[50px] sm:min-h-[56px] flex flex-col justify-start">
                     <div className="font-mono text-[10px] text-white/40 uppercase tracking-wide truncate">
                       {member.role}
                     </div>
@@ -82,9 +82,9 @@ export function MembersGallery() {
 
                 {/* Uniform Action Row at bottom */}
                 <div className="pt-2.5 mt-2.5 border-t border-white/8 flex items-center justify-between font-mono text-[10px] text-accent shrink-0">
-                  <span className="font-semibold uppercase tracking-wider">VIEW PROFILE</span>
+                  <span className="font-semibold uppercase tracking-wider text-[9px] sm:text-[10px]">VIEW PROFILE</span>
                   <ArrowUpRight
-                    size={13}
+                    size={12}
                     className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"
                   />
                 </div>
