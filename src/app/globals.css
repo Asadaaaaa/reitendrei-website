@@ -5,14 +5,14 @@
 :root {
   --background: #07090e;
   --foreground: #f1f5f9;
-  --accent: #ff4d29;
-  --accent-hover: #ff6b4a;
-  --accent-muted: rgba(255, 77, 41, 0.15);
+  --accent: #10d8e0;
+  --accent-hover: #38e6ee;
+  --accent-muted: rgba(16, 216, 224, 0.15);
   --muted: #8c9ba8;
   --surface: #0e141f;
   --card: #121a27;
   --border: rgba(255, 255, 255, 0.08);
-  --border-accent: rgba(255, 77, 41, 0.3);
+  --border-accent: rgba(16, 216, 224, 0.35);
 }
 
 @layer base {
@@ -92,7 +92,7 @@ html.lenis, html.lenis body {
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #ff4d29;
+  background: #10d8e0;
 }
 
 /* Editorial styling utilities */
@@ -103,12 +103,12 @@ html.lenis, html.lenis body {
 }
 
 .text-stroke:hover {
-  -webkit-text-stroke: 1.5px #ff4d29;
-  color: #ff4d29;
+  -webkit-text-stroke: 1.5px #10d8e0;
+  color: #10d8e0;
 }
 
 .text-stroke-accent {
-  -webkit-text-stroke: 1.5px #ff4d29;
+  -webkit-text-stroke: 1.5px #10d8e0;
   color: transparent;
 }
 
