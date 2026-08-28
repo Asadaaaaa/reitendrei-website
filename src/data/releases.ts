@@ -26,7 +26,7 @@ export const releases: Release[] = [
     spotifyTrackId: '7e5CxBlmNSDcT5nhwH3Tm2',
     spotifyUrl: 'https://open.spotify.com/track/7e5CxBlmNSDcT5nhwH3Tm2',
     youtubeUrl: 'https://youtu.be/coXlk7MLFUM',
-    image: '/images/releases/nelayan-pantai-sanur.webp',
+    image: '/images/releases/nelayan-pantai-sanur-official.webp',
     description:
       'The song tells the story of a fisherman who receives a lucky talisman from the ocean, but becomes consumed by arrogance rather than humility and gratitude — until the deep sea reclaims what it once bestowed.',
     themes: ['Karma & Destiny', 'Ocean & Nature', 'Humility vs Greed', 'Social Criticism', 'Spiritual Symbolism'],
