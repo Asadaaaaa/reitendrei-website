@@ -1,6 +1,6 @@
 import { ReleaseGallery } from '../releases/ReleaseGallery'
 import { Reveal } from '../motion/Reveal'
-import { Calendar, MapPin, Disc3 } from 'lucide-react'
+import { Disc3 } from 'lucide-react'
 
 export function BandStory() {
   return (
@@ -23,14 +23,6 @@ export function BandStory() {
               <h2 className="font-display font-black text-3xl sm:text-5xl tracking-tighter uppercase text-white leading-none">
                 THE BAND &amp; RELEASES
               </h2>
-            </div>
-            <div className="flex items-center gap-4 text-[11px] font-mono text-white/40 flex-shrink-0">
-              <span className="flex items-center gap-1">
-                <Calendar size={12} className="text-accent" /> 25 AUG 2024
-              </span>
-              <span className="flex items-center gap-1">
-                <MapPin size={12} className="text-accent" /> BEKASI, ID
-              </span>
             </div>
           </div>
         </Reveal>
