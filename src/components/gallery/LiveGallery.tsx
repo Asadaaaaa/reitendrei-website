@@ -1,12 +1,35 @@
 'use client'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { liveGalleryPhotos, type GalleryPhoto } from '../../data/gallery'
 import { GalleryLightbox } from './GalleryLightbox'
 import { Reveal } from '../motion/Reveal'
-import { Camera, Eye } from 'lucide-react'
+import { MagneticButton } from '../ui/MagneticButton'
+import { Camera, Eye, ChevronDown } from 'lucide-react'
 
 export function LiveGallery() {
   const [selectedPhoto, setSelectedPhoto] = useState<GalleryPhoto | null>(null)
+  const [isMobile, setIsMobile] = useState(false)
+  const [visibleCount, setVisibleCount] = useState(6)
+
+  useEffect(() => {
+    const checkMobile = () => {
+      const mobile = window.innerWidth < 768
+      setIsMobile(mobile)
+      // Set initial count: 3 on mobile, 6 on desktop/PC
+      setVisibleCount(mobile ? 3 : 6)
+    }
+
+    checkMobile()
+    window.addEventListener('resize', checkMobile)
+    return () => window.removeEventListener('resize', checkMobile)
+  }, [])
+
+  const handleLoadMore = () => {
+    setVisibleCount((prev) => prev + (isMobile ? 3 : 6))
+  }
+
+  const visiblePhotos = liveGalleryPhotos.slice(0, visibleCount)
+  const hasMore = visibleCount < liveGalleryPhotos.length
 
   return (
     <section
@@ -35,10 +58,10 @@ export function LiveGallery() {
           </div>
         </Reveal>
 
-        {/* Symmetrical 6-Photo Grid — 2-col on mobile, 3-col on desktop */}
+        {/* Symmetrical Photo Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 md:gap-6 items-stretch">
-          {liveGalleryPhotos.map((photo, idx) => (
-            <Reveal key={photo.id} direction="up" delay={idx * 0.06} className="h-full">
+          {visiblePhotos.map((photo, idx) => (
+            <Reveal key={`${photo.id}-${idx}`} direction="up" delay={(idx % 6) * 0.05} className="h-full">
               <div
                 className="group relative rounded-2xl overflow-hidden bg-surface border border-white/8 cursor-pointer shadow-xl hover:border-accent/40 hover:-translate-y-1 transition-all duration-500 h-full flex flex-col justify-between"
                 onClick={() => setSelectedPhoto(photo)}
@@ -84,6 +107,25 @@ export function LiveGallery() {
             </Reveal>
           ))}
         </div>
+
+        {/* Load More Button */}
+        {hasMore && (
+          <Reveal direction="up">
+            <div className="flex justify-center pt-4">
+              <MagneticButton strength={15}>
+                <button
+                  type="button"
+                  onClick={handleLoadMore}
+                  className="group flex items-center gap-2.5 px-7 py-3.5 rounded-xl bg-surface hover:bg-card border border-white/10 hover:border-accent text-white font-mono text-xs font-bold uppercase tracking-widest transition-all duration-300 shadow-xl hover:shadow-accent/20"
+                  data-cursor="pointer"
+                >
+                  <span>LOAD MORE ARCHIVES</span>
+                  <ChevronDown size={15} className="text-accent group-hover:translate-y-0.5 transition-transform" />
+                </button>
+              </MagneticButton>
+            </div>
+          </Reveal>
+        )}
       </div>
 
       {/* Lightbox */}
