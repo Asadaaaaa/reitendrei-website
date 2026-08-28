@@ -43,8 +43,8 @@ export function BandStory() {
               <div className="rounded-2xl overflow-hidden border border-white/8 bg-surface shadow-xl group">
                 <div className="aspect-[4/3] w-full overflow-hidden bg-background">
                   <img
-                    src="/images/band/band-hero.webp"
-                    alt="Reiten Drei Band"
+                    src="/images/band/full-members.webp"
+                    alt="Reiten Drei Full Members"
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                   />
                 </div>
