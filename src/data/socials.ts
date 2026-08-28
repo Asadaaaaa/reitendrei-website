@@ -23,8 +23,8 @@ export const socials: SocialLink[] = [
   },
   {
     name: 'YouTube',
-    handle: 'Reiten Drei',
-    url: 'https://youtube.com/@reitendrei',
+    handle: '@reitendreiofficial',
+    url: 'https://youtube.com/@reitendreiofficial?si=k8AWNngPrkXf3kCk',
     type: 'youtube',
     description: 'Music videos, live sessions, and documentary archives.',
   },
