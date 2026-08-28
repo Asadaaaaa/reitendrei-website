@@ -43,7 +43,7 @@ export const releases: Release[] = [
     year: '2024',
     spotifyTrackId: '3MbvAPAVXKJMDrkgwMGw2a',
     spotifyUrl: 'https://open.spotify.com/track/3MbvAPAVXKJMDrkgwMGw2a',
-    image: '/images/releases/badjingan.webp',
+    image: '/images/releases/badjingan-official.webp',
     description:
       'A satirical and raw sonic assault addressing societal hypocrisy with unapologetic lyrics, absurd visual symbolism, and a fierce artistic identity featuring the iconic shrimp-head artwork.',
     themes: ['Satire & Rebellion', 'Sharp Social Commentary', 'Absurdist Visuals', 'Shrimp-Head Iconography', 'Raw Energy'],
