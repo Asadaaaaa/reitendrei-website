@@ -2,7 +2,7 @@
 import { Modal } from '../ui/Modal'
 import { SpotifyEmbed } from './SpotifyEmbed'
 import type { Release } from '../../data/releases'
-import { ExternalLink, Radio, Sparkles } from 'lucide-react'
+import { ExternalLink, Sparkles } from 'lucide-react'
 
 interface ReleaseDetailModalProps {
   release: Release | null
@@ -17,25 +17,7 @@ export function ReleaseDetailModal({ release, isOpen, onClose }: ReleaseDetailMo
     <Modal isOpen={isOpen} onClose={onClose} maxWidth="2xl">
       <div className="p-5 sm:p-7 space-y-5">
         {/* Top: Spotify Embed Audio Player */}
-        <div className="space-y-2">
-          <div className="flex items-center justify-between font-mono text-[11px] text-white/40 pb-1 border-b border-white/8">
-            <span className="flex items-center gap-1.5 text-accent font-semibold">
-              <Radio size={12} className="animate-pulse" /> DIRECT AUDIO STREAM // RD-{release.number}
-            </span>
-            <div className="flex items-center gap-3">
-              <span>{release.year}</span>
-              <a
-                href={release.spotifyUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-1 text-white/80 hover:text-accent transition-colors"
-              >
-                <span>SPOTIFY</span>
-                <ExternalLink size={11} />
-              </a>
-            </div>
-          </div>
-
+        <div>
           <SpotifyEmbed
             trackId={release.spotifyTrackId}
             title={`${release.title} - Reiten Drei`}
