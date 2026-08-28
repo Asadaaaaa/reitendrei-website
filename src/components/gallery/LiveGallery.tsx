@@ -49,7 +49,7 @@ export function LiveGallery() {
                 <span>03 // VISUAL ARCHIVE</span>
               </div>
               <h2 className="font-display font-black text-3xl sm:text-5xl tracking-tighter uppercase text-white leading-none">
-                LIVE PERFORMANCE
+                GALLERY
               </h2>
             </div>
             <p className="text-xs sm:text-sm text-white/40 max-w-xs leading-relaxed flex-shrink-0">
