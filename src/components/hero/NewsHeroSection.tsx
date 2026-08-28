@@ -20,7 +20,7 @@ export function NewsHeroSection() {
           <div className="flex flex-wrap items-center justify-between gap-3 pb-5 border-b border-white/8">
             <div className="flex items-center gap-2.5">
               <span className="font-display font-black text-xl sm:text-2xl text-white tracking-widest uppercase">
-                DIGITAL ARCHIVE
+                UPDATE
               </span>
               <span className="h-4 w-px bg-white/20" />
               <div className="flex items-center gap-1.5 font-mono text-xs text-accent">

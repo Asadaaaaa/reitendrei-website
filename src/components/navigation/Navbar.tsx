@@ -37,22 +37,20 @@ export function Navbar() {
         }`}
       >
         <div className="max-w-7xl mx-auto px-6 sm:px-8 md:px-12 flex items-center justify-between">
-          {/* Logo & Brand */}
+          {/* Logo */}
           <MagneticButton strength={15}>
             <button
               type="button"
               onClick={() => scrollTo(0)}
-              className="flex items-center gap-3 text-left group"
+              className="flex items-center group py-1"
+              aria-label="Reiten Drei Home"
               data-cursor="pointer"
             >
               <img
                 src="/images/brand/logo.webp"
                 alt="Reiten Drei Logo"
-                className="h-8 sm:h-9 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
+                className="h-9 sm:h-11 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
               />
-              <span className="font-display font-black tracking-widest text-base md:text-lg text-white leading-none group-hover:text-accent transition-colors">
-                REITEN DREI
-              </span>
             </button>
           </MagneticButton>
 
