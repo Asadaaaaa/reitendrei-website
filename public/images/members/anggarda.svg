@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 750" width="600" height="750">
+  <defs>
+    <linearGradient id="anggardaBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#052e16" />
+      <stop offset="60%" stop-color="#064e3b" />
+      <stop offset="100%" stop-color="#07090e" />
+    </linearGradient>
+  </defs>
+  <rect width="600" height="750" fill="url(#anggardaBg)" />
+  <circle cx="300" cy="280" r="130" fill="#34d399" opacity="0.1" />
+  <!-- Stylized Fender Offset Surf Guitar Silhouette -->
+  <g transform="translate(300, 360)" fill="none" stroke="#34d399" stroke-width="4" stroke-linecap="round">
+    <path d="M -50 110 C -100 50 -60 -20 -20 -30 C -10 -40 -10 -190 0 -230 C 10 -190 10 -40 20 -30 C 70 -20 100 50 60 110 Z" fill="#052e16" stroke="#34d399" stroke-width="5" />
+    <!-- Tremolo Arm / Whammy Bar -->
+    <line x1="15" y1="50" x2="65" y2="85" stroke="#f59e0b" stroke-width="4" />
+    <!-- Dual Pickups & Surf Switches -->
+    <rect x="-20" y="-5" width="40" height="12" rx="3" fill="#34d399" stroke="none" />
+    <rect x="-20" y="25" width="40" height="12" rx="3" fill="#34d399" stroke="none" />
+  </g>
+  <text x="300" y="640" text-anchor="middle" fill="#ffffff" font-family="sans-serif" font-weight="900" font-size="24" letter-spacing="3">ANGGARDA RAIZZA PUTRA</text>
+  <text x="300" y="675" text-anchor="middle" fill="#34d399" font-family="monospace" font-weight="700" font-size="14" letter-spacing="6">LEAD &amp; RHYTHM GUITAR</text>
+</svg>

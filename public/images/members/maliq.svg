@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 750" width="600" height="750">
+  <defs>
+    <linearGradient id="maliqBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1f1107" />
+      <stop offset="60%" stop-color="#2d1a0d" />
+      <stop offset="100%" stop-color="#07090e" />
+    </linearGradient>
+  </defs>
+  <rect width="600" height="750" fill="url(#maliqBg)" />
+  <circle cx="300" cy="280" r="130" fill="#f59e0b" opacity="0.1" />
+  <!-- Stylized Bass Guitar Silhouette -->
+  <g transform="translate(300, 360)" fill="none" stroke="#f59e0b" stroke-width="4" stroke-linecap="round">
+    <path d="M -40 120 C -90 60 -70 -20 -30 -30 C -10 -40 -10 -180 0 -220 C 10 -180 10 -40 30 -30 C 70 -20 90 60 40 120 Z" fill="#1f1107" stroke="#fbbf24" stroke-width="5" />
+    <!-- Bass 4 Strings -->
+    <line x1="-12" y1="-210" x2="-12" y2="90" stroke="#f59e0b" stroke-width="3" />
+    <line x1="-4" y1="-210" x2="-4" y2="90" stroke="#f59e0b" stroke-width="2.5" />
+    <line x1="4" y1="-210" x2="4" y2="90" stroke="#f59e0b" stroke-width="2" />
+    <line x1="12" y1="-210" x2="12" y2="90" stroke="#f59e0b" stroke-width="1.5" />
+    <!-- Pickups -->
+    <rect x="-25" y="10" width="20" height="12" rx="2" fill="#fbbf24" stroke="none" />
+    <rect x="5" y="25" width="20" height="12" rx="2" fill="#fbbf24" stroke="none" />
+  </g>
+  <text x="300" y="640" text-anchor="middle" fill="#ffffff" font-family="sans-serif" font-weight="900" font-size="28" letter-spacing="4">MALIQ RIZKI MULIA</text>
+  <text x="300" y="675" text-anchor="middle" fill="#f59e0b" font-family="monospace" font-weight="700" font-size="14" letter-spacing="6">BASS GUITAR</text>
+</svg>

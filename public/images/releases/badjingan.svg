@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" width="600" height="600">
+  <defs>
+    <linearGradient id="badjinganBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2d0a0a" />
+      <stop offset="50%" stop-color="#4a1010" />
+      <stop offset="100%" stop-color="#140303" />
+    </linearGradient>
+    <linearGradient id="fireGrad" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#ff4d29" />
+      <stop offset="100%" stop-color="#f59e0b" />
+    </linearGradient>
+  </defs>
+  <rect width="600" height="600" fill="url(#badjinganBg)" />
+  
+  <!-- Stylized Shrimp Head Graphic Shape -->
+  <g transform="translate(300, 240) scale(1.1)">
+    <!-- Main Shell Arc -->
+    <path d="M -90 40 C -120 -60 0 -130 90 -40 C 130 10 70 80 0 70 C -50 60 -80 50 -90 40 Z" fill="url(#fireGrad)" opacity="0.95" />
+    <!-- Segment lines -->
+    <path d="M -60 -40 C -20 -90 50 -30 60 20" stroke="#140303" stroke-width="4" fill="none" opacity="0.7" />
+    <path d="M -40 -10 C -10 -50 40 -10 40 40" stroke="#140303" stroke-width="4" fill="none" opacity="0.7" />
+    <!-- Eye -->
+    <circle cx="65" cy="-35" r="12" fill="#ffffff" />
+    <circle cx="68" cy="-35" r="6" fill="#000000" />
+    <!-- Whisker / Antennae -->
+    <path d="M 75 -40 Q 140 -110 180 -70" stroke="#fbbf24" stroke-width="3" fill="none" />
+    <path d="M 70 -30 Q 130 -60 170 -30" stroke="#fbbf24" stroke-width="2.5" fill="none" />
+  </g>
+  
+  <!-- Typography Badge -->
+  <text x="300" y="520" text-anchor="middle" fill="#ffffff" font-family="sans-serif" font-weight="900" font-size="28" letter-spacing="6">BADJINGAN</text>
+  <text x="300" y="550" text-anchor="middle" fill="#ff4d29" font-family="monospace" font-weight="700" font-size="12" letter-spacing="6">REITEN DREI // SINGLE 02</text>
+</svg>

@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600">
+  <defs>
+    <linearGradient id="bandBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a121e" />
+      <stop offset="50%" stop-color="#141f32" />
+      <stop offset="100%" stop-color="#07090e" />
+    </linearGradient>
+    <linearGradient id="bandWave" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#ff4d29" stop-opacity="0.8" />
+      <stop offset="50%" stop-color="#f59e0b" stop-opacity="0.9" />
+      <stop offset="100%" stop-color="#0284c7" stop-opacity="0.8" />
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#bandBg)" />
+  <!-- Wave Lines -->
+  <path d="M 0 340 Q 200 240 400 340 T 800 340 L 800 600 L 0 600 Z" fill="#0f1d32" opacity="0.8" />
+  <path d="M 0 400 Q 200 300 400 400 T 800 400 L 800 600 L 0 600 Z" fill="url(#bandWave)" opacity="0.6" />
+  <path d="M 0 480 Q 200 400 400 480 T 800 480 L 800 600 L 0 600 Z" fill="#07090e" />
+  
+  <!-- 4-Band Silhouette Nodes -->
+  <g transform="translate(400, 240)">
+    <circle cx="-180" cy="0" r="45" fill="#38bdf8" opacity="0.8" />
+    <circle cx="-60" cy="-20" r="50" fill="#f59e0b" opacity="0.8" />
+    <circle cx="60" cy="-20" r="50" fill="#34d399" opacity="0.8" />
+    <circle cx="180" cy="0" r="45" fill="#fb7185" opacity="0.8" />
+  </g>
+  
+  <text x="400" y="530" text-anchor="middle" fill="#ffffff" font-family="sans-serif" font-weight="900" font-size="32" letter-spacing="8">REITEN DREI</text>
+  <text x="400" y="565" text-anchor="middle" fill="#ff4d29" font-family="monospace" font-weight="700" font-size="14" letter-spacing="6">EST. 25 AUG 2024 // BEKASI</text>
+</svg>

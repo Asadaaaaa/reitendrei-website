@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 750" width="600" height="750">
+  <defs>
+    <linearGradient id="ijlalBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2d0612" />
+      <stop offset="60%" stop-color="#4c0519" />
+      <stop offset="100%" stop-color="#07090e" />
+    </linearGradient>
+  </defs>
+  <rect width="600" height="750" fill="url(#ijlalBg)" />
+  <circle cx="300" cy="280" r="130" fill="#fb7185" opacity="0.1" />
+  <!-- Stylized Vintage 55SH Microphone Silhouette -->
+  <g transform="translate(300, 360)" fill="none" stroke="#fb7185" stroke-width="4" stroke-linecap="round">
+    <rect x="-40" y="-120" width="80" height="110" rx="25" fill="#2d0612" stroke="#fb7185" stroke-width="5" />
+    <!-- Horizontal Ribs -->
+    <line x1="-30" y1="-95" x2="30" y2="-95" stroke="#fb7185" stroke-width="3" />
+    <line x1="-35" y1="-70" x2="35" y2="-70" stroke="#fb7185" stroke-width="3" />
+    <line x1="-35" y1="-45" x2="35" y2="-45" stroke="#fb7185" stroke-width="3" />
+    <line x1="-30" y1="-20" x2="30" y2="-20" stroke="#fb7185" stroke-width="3" />
+    <!-- Stand -->
+    <path d="M 0 -10 L 0 100" stroke="#f43f5e" stroke-width="6" />
+    <circle cx="0" cy="110" r="16" fill="#f43f5e" stroke="none" />
+  </g>
+  <text x="300" y="640" text-anchor="middle" fill="#ffffff" font-family="sans-serif" font-weight="900" font-size="28" letter-spacing="4">IJLAL ZEIN AHZA</text>
+  <text x="300" y="675" text-anchor="middle" fill="#fb7185" font-family="monospace" font-weight="700" font-size="14" letter-spacing="6">LEAD VOCALS &amp; ENERGY</text>
+</svg>
