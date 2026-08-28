@@ -35,25 +35,17 @@ export function LiveGallery() {
           </div>
         </Reveal>
 
-        {/* Photo Grid — asymmetric 3-col */}
-        <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 md:gap-5 items-start">
+        {/* Symmetrical 6-Photo Grid — 2-col on mobile, 3-col on desktop */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 md:gap-6 items-stretch">
           {liveGalleryPhotos.map((photo, idx) => (
-            <Reveal key={photo.id} direction="up" delay={idx * 0.07}>
+            <Reveal key={photo.id} direction="up" delay={idx * 0.06} className="h-full">
               <div
-                className="group relative rounded-2xl overflow-hidden bg-surface border border-white/8 cursor-pointer shadow-lg hover:border-accent/40 hover:-translate-y-1 transition-all duration-500"
+                className="group relative rounded-2xl overflow-hidden bg-surface border border-white/8 cursor-pointer shadow-xl hover:border-accent/40 hover:-translate-y-1 transition-all duration-500 h-full flex flex-col justify-between"
                 onClick={() => setSelectedPhoto(photo)}
                 data-cursor="view"
               >
-                {/* Image */}
-                <div
-                  className={`relative w-full overflow-hidden bg-background ${
-                    photo.aspect === 'portrait'
-                      ? 'aspect-[3/4]'
-                      : photo.aspect === 'square'
-                      ? 'aspect-square'
-                      : 'aspect-[4/3]'
-                  }`}
-                >
+                {/* Fixed Uniform 4:3 Aspect Ratio Container */}
+                <div className="relative w-full aspect-[4/3] overflow-hidden bg-background">
                   <img
                     src={photo.image}
                     alt={photo.title}
@@ -61,29 +53,29 @@ export function LiveGallery() {
                   />
 
                   {/* Vignette */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-black/20 to-transparent opacity-70 group-hover:opacity-90 transition-opacity duration-300" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-black/25 to-transparent opacity-75 group-hover:opacity-90 transition-opacity duration-300" />
 
-                  {/* Category Tag */}
+                  {/* Category Tag Top Left */}
                   <div className="absolute top-3 left-3 z-10">
-                    <span className="px-2 py-0.5 rounded-md bg-background/80 backdrop-blur-md text-white font-mono text-[9px] font-bold border border-white/10 uppercase tracking-wider">
+                    <span className="px-2.5 py-1 rounded-md bg-background/85 backdrop-blur-md text-white font-mono text-[10px] font-bold border border-white/10 uppercase tracking-wider shadow-md">
                       {photo.type}
                     </span>
                   </div>
 
-                  {/* Inspect Hover Button */}
-                  <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10">
-                    <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-accent text-white font-mono text-[10px] font-bold uppercase tracking-wider shadow-lg shadow-accent/40 scale-90 group-hover:scale-100 transition-transform">
-                      <Eye size={12} />
+                  {/* Inspect Hover Button Center */}
+                  <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10 pointer-events-none">
+                    <div className="flex items-center gap-1.5 px-4 py-2 rounded-xl bg-accent text-white font-mono text-xs font-bold uppercase tracking-wider shadow-xl shadow-accent/50 scale-90 group-hover:scale-100 transition-transform duration-300">
+                      <Eye size={14} />
                       <span>INSPECT</span>
                     </div>
                   </div>
 
-                  {/* Bottom Info */}
-                  <div className="absolute bottom-3 left-3 right-3 z-10">
-                    <div className="font-mono text-[9px] text-accent tracking-wider uppercase mb-0.5">
+                  {/* Bottom Info Overlay */}
+                  <div className="absolute bottom-3 left-3 right-3 z-10 space-y-0.5">
+                    <div className="font-mono text-[10px] text-accent tracking-wider uppercase font-semibold">
                       {photo.venue}
                     </div>
-                    <h3 className="font-display font-bold text-sm text-white tracking-tight uppercase line-clamp-1">
+                    <h3 className="font-display font-black text-base sm:text-lg text-white tracking-tight uppercase line-clamp-1 group-hover:text-accent transition-colors duration-200">
                       {photo.title}
                     </h3>
                   </div>
