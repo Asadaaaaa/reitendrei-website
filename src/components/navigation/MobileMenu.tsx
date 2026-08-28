@@ -119,10 +119,6 @@ export function MobileMenu({ isOpen, onClose, onNavigate }: MobileMenuProps) {
             </a>
           ))}
         </div>
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between text-xs text-muted/60 font-mono">
-          <span>{contactData.formedDate} • {contactData.origin}</span>
-          <span className="text-accent/80">{contactData.email}</span>
-        </div>
       </div>
     </div>
   )

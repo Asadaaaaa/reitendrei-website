@@ -52,9 +52,6 @@ export function Navbar() {
                 <span className="font-display font-black tracking-widest text-base md:text-lg text-white leading-none group-hover:text-accent transition-colors">
                   REITEN DREI
                 </span>
-                <span className="font-mono text-[9px] tracking-widest text-muted uppercase mt-0.5">
-                  SURF ROCK / BEKASI
-                </span>
               </div>
             </button>
           </MagneticButton>

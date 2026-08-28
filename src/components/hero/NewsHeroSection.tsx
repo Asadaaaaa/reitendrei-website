@@ -28,9 +28,6 @@ export function NewsHeroSection() {
                 <span className="tracking-widest uppercase font-semibold">DIGITAL ARCHIVE</span>
               </div>
             </div>
-            <span className="font-mono text-[11px] text-white/30 tracking-wider uppercase">
-              SURF ROCK // BEKASI, INDONESIA
-            </span>
           </div>
         </Reveal>
 
