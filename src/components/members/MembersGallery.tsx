@@ -1,13 +1,9 @@
 'use client'
-import { useState } from 'react'
-import { members, type Member } from '../../data/members'
-import { MemberDetailModal } from './MemberDetailModal'
+import { members } from '../../data/members'
 import { Reveal } from '../motion/Reveal'
-import { Users, ArrowUpRight } from 'lucide-react'
+import { Users } from 'lucide-react'
 
 export function MembersGallery() {
-  const [selectedMember, setSelectedMember] = useState<Member | null>(null)
-
   return (
     <section
       id="members"
@@ -30,7 +26,7 @@ export function MembersGallery() {
               </h2>
             </div>
             <p className="text-xs sm:text-sm text-white/40 max-w-xs leading-relaxed flex-shrink-0">
-              5-piece unit from Bekasi. Click on any member to view their sonic role and profile.
+              5-piece surf rock unit from Bekasi, Indonesia.
             </p>
           </div>
         </Reveal>
@@ -39,11 +35,7 @@ export function MembersGallery() {
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-4 items-stretch">
           {members.map((member, idx) => (
             <Reveal key={member.id} direction="up" delay={idx * 0.06} className="h-full">
-              <div
-                className="group relative rounded-2xl overflow-hidden bg-surface border border-white/8 p-3 sm:p-3.5 flex flex-col justify-between h-full cursor-pointer hover:border-accent/40 transition-all duration-500 shadow-xl hover:-translate-y-1.5"
-                onClick={() => setSelectedMember(member)}
-                data-cursor="view"
-              >
+              <div className="group relative rounded-2xl overflow-hidden bg-surface border border-white/8 p-3 sm:p-3.5 flex flex-col justify-between h-full hover:border-accent/40 transition-all duration-500 shadow-xl hover:-translate-y-1">
                 {/* Fixed Ratio 4:5 Portrait */}
                 <div>
                   <div className="relative aspect-[4/5] w-full rounded-xl overflow-hidden bg-background mb-3 shrink-0">
@@ -62,8 +54,8 @@ export function MembersGallery() {
                     </div>
                   </div>
 
-                  {/* Name & Role with uniform min-height for symmetry */}
-                  <div className="space-y-0.5 min-h-[50px] sm:min-h-[56px] flex flex-col justify-start">
+                  {/* Name & Role */}
+                  <div className="space-y-0.5 min-h-[48px] sm:min-h-[54px] flex flex-col justify-start">
                     <div className="font-mono text-[10px] text-white/40 uppercase tracking-wide truncate">
                       {member.role}
                     </div>
@@ -72,27 +64,11 @@ export function MembersGallery() {
                     </h3>
                   </div>
                 </div>
-
-                {/* Uniform Action Row at bottom */}
-                <div className="pt-2.5 mt-2.5 border-t border-white/8 flex items-center justify-between font-mono text-[10px] text-accent shrink-0">
-                  <span className="font-semibold uppercase tracking-wider text-[9px] sm:text-[10px]">VIEW PROFILE</span>
-                  <ArrowUpRight
-                    size={12}
-                    className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"
-                  />
-                </div>
               </div>
             </Reveal>
           ))}
         </div>
       </div>
-
-      {/* Member Detail Modal */}
-      <MemberDetailModal
-        member={selectedMember}
-        isOpen={!!selectedMember}
-        onClose={() => setSelectedMember(null)}
-      />
     </section>
   )
 }
