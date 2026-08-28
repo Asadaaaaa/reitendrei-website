@@ -66,9 +66,16 @@ export function MobileMenu({ isOpen, onClose, onNavigate }: MobileMenuProps) {
     >
       {/* Top bar */}
       <div className="flex items-center justify-between border-b border-border/40 pb-6">
-        <div>
-          <span className="font-display tracking-widest text-lg font-black text-white">REITEN DREI</span>
-          <span className="block text-[10px] tracking-widest text-accent uppercase font-mono">SURF ROCK DIGITAL ARCHIVE</span>
+        <div className="flex items-center gap-3">
+          <img
+            src="/images/brand/logo.webp"
+            alt="Reiten Drei Logo"
+            className="h-8 w-auto object-contain"
+          />
+          <div>
+            <span className="font-display tracking-widest text-lg font-black text-white">REITEN DREI</span>
+            <span className="block text-[10px] tracking-widest text-accent uppercase font-mono">DIGITAL ARCHIVE</span>
+          </div>
         </div>
         <button
           type="button"

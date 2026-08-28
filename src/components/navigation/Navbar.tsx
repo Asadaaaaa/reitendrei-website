@@ -37,7 +37,7 @@ export function Navbar() {
         }`}
       >
         <div className="max-w-7xl mx-auto px-6 sm:px-8 md:px-12 flex items-center justify-between">
-          {/* Logo & Descriptor */}
+          {/* Logo & Brand */}
           <MagneticButton strength={15}>
             <button
               type="button"
@@ -45,14 +45,14 @@ export function Navbar() {
               className="flex items-center gap-3 text-left group"
               data-cursor="pointer"
             >
-              <div className="w-8 h-8 rounded-lg bg-accent flex items-center justify-center font-display font-black text-xs text-white tracking-tighter shadow-lg shadow-accent/20 group-hover:scale-105 transition-transform">
-                RD
-              </div>
-              <div className="flex flex-col">
-                <span className="font-display font-black tracking-widest text-base md:text-lg text-white leading-none group-hover:text-accent transition-colors">
-                  REITEN DREI
-                </span>
-              </div>
+              <img
+                src="/images/brand/logo.webp"
+                alt="Reiten Drei Logo"
+                className="h-8 sm:h-9 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
+              />
+              <span className="font-display font-black tracking-widest text-base md:text-lg text-white leading-none group-hover:text-accent transition-colors">
+                REITEN DREI
+              </span>
             </button>
           </MagneticButton>
 

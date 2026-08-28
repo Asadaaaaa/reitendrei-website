@@ -19,13 +19,13 @@ export function NewsHeroSection() {
         <Reveal direction="down">
           <div className="flex flex-wrap items-center justify-between gap-3 pb-5 border-b border-white/8">
             <div className="flex items-center gap-2.5">
-              <span className="font-display font-black text-xl sm:text-2xl text-white tracking-widest">
-                REITEN DREI
+              <span className="font-display font-black text-xl sm:text-2xl text-white tracking-widest uppercase">
+                DIGITAL ARCHIVE
               </span>
               <span className="h-4 w-px bg-white/20" />
               <div className="flex items-center gap-1.5 font-mono text-xs text-accent">
                 <Waves size={13} />
-                <span className="tracking-widest uppercase font-semibold">DIGITAL ARCHIVE</span>
+                <span className="tracking-widest uppercase font-semibold">LATEST CHRONICLES</span>
               </div>
             </div>
           </div>
