@@ -1,3 +1,4 @@
+'use client'
 import { useState, useEffect } from 'react'
 import { useLenis } from '../../hooks/useLenis'
 import { MobileMenu } from './MobileMenu'

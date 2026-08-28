@@ -1,3 +1,4 @@
+'use client'
 import { useState } from 'react'
 import { liveGalleryPhotos, type GalleryPhoto } from '../../data/gallery'
 import { GalleryLightbox } from './GalleryLightbox'

@@ -1,3 +1,4 @@
+'use client'
 import { useState } from 'react'
 import { releases, type Release } from '../../data/releases'
 import { ReleaseCard } from './ReleaseCard'

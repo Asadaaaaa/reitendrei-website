@@ -1,3 +1,4 @@
+'use client'
 import { Modal } from '../ui/Modal'
 import type { Member } from '../../data/members'
 import { Sparkles, Music } from 'lucide-react'

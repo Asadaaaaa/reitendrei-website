@@ -1,3 +1,4 @@
+'use client'
 import type { Release } from '../../data/releases'
 import { Disc3, Play } from 'lucide-react'
 

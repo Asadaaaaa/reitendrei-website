@@ -1,3 +1,4 @@
+'use client'
 import { Modal } from '../ui/Modal'
 import type { NewsItem } from '../../data/news'
 import { Calendar, ExternalLink, Sparkles } from 'lucide-react'

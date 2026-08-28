@@ -1,3 +1,4 @@
+'use client'
 import { Modal } from '../ui/Modal'
 import type { GalleryPhoto } from '../../data/gallery'
 import { Calendar, MapPin, Sparkles } from 'lucide-react'

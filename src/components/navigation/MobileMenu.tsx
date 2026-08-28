@@ -1,3 +1,4 @@
+'use client'
 import { useEffect, useRef } from 'react'
 import { gsap } from '../../lib/animations'
 import { socials } from '../../data/socials'

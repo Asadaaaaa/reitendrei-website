@@ -1,3 +1,4 @@
+'use client'
 import { useState } from 'react'
 import { members, type Member } from '../../data/members'
 import { MemberDetailModal } from './MemberDetailModal'

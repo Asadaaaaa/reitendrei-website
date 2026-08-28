@@ -1,3 +1,4 @@
+'use client'
 import { Modal } from '../ui/Modal'
 import { SpotifyEmbed } from './SpotifyEmbed'
 import type { Release } from '../../data/releases'

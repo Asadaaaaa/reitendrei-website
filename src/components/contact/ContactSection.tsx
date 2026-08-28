@@ -1,3 +1,4 @@
+'use client'
 import { useState } from 'react'
 import { socials } from '../../data/socials'
 import { contactData } from '../../data/contact'

@@ -1,3 +1,4 @@
+'use client'
 import { useRef, type ReactNode, type MouseEvent } from 'react'
 import { gsap } from '../../lib/animations'
 

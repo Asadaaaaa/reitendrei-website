@@ -1,3 +1,4 @@
+'use client'
 import { useState, useEffect, useRef, useCallback } from 'react'
 import { newsItems } from '../../data/news'
 import { NewsSlide } from './NewsSlide'

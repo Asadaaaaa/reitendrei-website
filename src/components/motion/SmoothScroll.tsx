@@ -1,3 +1,4 @@
+'use client'
 import { createContext, useContext, useEffect, useRef, useState, type ReactNode } from 'react'
 import Lenis from 'lenis'
 import { gsap, ScrollTrigger } from '../../lib/animations'

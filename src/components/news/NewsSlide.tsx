@@ -1,3 +1,4 @@
+'use client'
 import type { NewsItem } from '../../data/news'
 import { Calendar } from 'lucide-react'
 
