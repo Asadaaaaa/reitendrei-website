@@ -16,7 +16,7 @@ export const newsItems: NewsItem[] = [
     id: 'news-001',
     category: 'ANNIVERSARY / LIVE',
     title: '2nd Anniversary — Live at Cafe Terpingkal',
-    date: 'August 2026',
+    date: '29 August 2026',
     shortDescription: 'Perayaan 2nd Anniversary Reiten Drei dengan live session spesial dan energi surf rock di Cafe Terpingkal.',
     description:
       'Perayaan 2nd Anniversary Reiten Drei dengan penampilan live spesial membawakan repertoar surf rock berenergi tinggi di Cafe Terpingkal. Menampilkan hentakan ritme ombak pantai dan reverb twang khas.',
