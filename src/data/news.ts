@@ -14,14 +14,14 @@ export interface NewsItem {
 export const newsItems: NewsItem[] = [
   {
     id: 'news-001',
-    category: 'LIVE EVENT',
-    title: 'Lorem Ipsum Dolor Sit Amet',
-    date: '28 August 2026',
-    shortDescription: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+    category: 'ANNIVERSARY / LIVE',
+    title: '2nd Anniversary — Live at Cafe Terpingkal',
+    date: 'August 2026',
+    shortDescription: 'Perayaan 2nd Anniversary Reiten Drei dengan live session spesial dan energi surf rock di Cafe Terpingkal.',
     description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.',
-    image: '/images/news/news-01.webp',
-    ctaLabel: 'Lorem Ipsum',
+      'Perayaan 2nd Anniversary Reiten Drei dengan penampilan live spesial membawakan repertoar surf rock berenergi tinggi di Cafe Terpingkal. Menampilkan hentakan ritme ombak pantai dan reverb twang khas.',
+    image: '/images/news/2nd-anniversary.webp',
+    ctaLabel: 'View Details',
     ctaUrl: '#',
     active: true,
   },
