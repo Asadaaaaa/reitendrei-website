@@ -31,7 +31,7 @@ export function NewsSlide({ item, isActive }: NewsSlideProps) {
       <div className="absolute inset-0 flex flex-col justify-between p-5 sm:p-7 md:p-9 z-10">
         {/* Top Meta Row */}
         <div className="flex items-center justify-between gap-2">
-          <span className="px-3 py-1 rounded-full bg-accent text-white font-mono text-[10px] sm:text-xs font-bold tracking-widest uppercase shadow-md shadow-accent/20">
+          <span className="px-3 py-1 rounded-full bg-accent text-slate-950 font-mono text-[10px] sm:text-xs font-black tracking-widest uppercase shadow-md shadow-accent/20">
             {item.category}
           </span>
           {item.date && (

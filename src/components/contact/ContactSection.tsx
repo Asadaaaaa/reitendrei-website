@@ -138,7 +138,7 @@ export function ContactSection() {
             </div>
 
             {/* Quick Links */}
-            <div className="flex flex-wrap gap-4 sm:gap-6 font-mono text-[11px] uppercase tracking-wider text-white/30">
+            <div className="flex flex-wrap gap-4 sm:gap-6 font-mono text-[11px] uppercase tracking-wider text-white/60">
               {socials.map((social) => (
                 <a
                   key={social.name}
@@ -157,7 +157,7 @@ export function ContactSection() {
               <button
                 type="button"
                 onClick={() => scrollTo(0)}
-                className="flex items-center gap-2 px-4 py-2.5 rounded-full border border-white/8 bg-surface/50 hover:border-accent hover:text-accent text-[11px] font-mono text-white/40 uppercase tracking-widest transition-all"
+                className="flex items-center gap-2 px-4 py-2.5 rounded-full border border-white/10 bg-surface/50 hover:border-accent hover:text-accent text-[11px] font-mono text-white/75 uppercase tracking-widest transition-all"
                 data-cursor="pointer"
               >
                 <span>TOP</span>
@@ -167,7 +167,7 @@ export function ContactSection() {
           </div>
 
           {/* Copyright */}
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 font-mono text-[10px] text-white/20 border-t border-white/5 pt-6">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 font-mono text-[10px] text-white/50 border-t border-white/5 pt-6">
             <div>© {new Date().getFullYear()} REITEN DREI. ALL RIGHTS RESERVED.</div>
             <div>SURF ROCK DIGITAL ARCHIVE // BEKASI, INDONESIA</div>
           </div>

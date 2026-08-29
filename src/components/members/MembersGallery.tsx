@@ -48,7 +48,7 @@ export function MembersGallery() {
 
                     {/* Instrument badge */}
                     <div className="absolute bottom-2.5 left-2.5 z-10">
-                      <span className="px-2.5 py-0.5 rounded-md bg-accent/90 text-white font-mono text-[9px] sm:text-[10px] font-bold uppercase tracking-wider shadow-md">
+                      <span className="px-2.5 py-0.5 rounded-md bg-accent text-slate-950 font-mono text-[9px] sm:text-[10px] font-black uppercase tracking-wider shadow-md">
                         {member.instrument}
                       </span>
                     </div>
@@ -56,7 +56,7 @@ export function MembersGallery() {
 
                   {/* Name & Role */}
                   <div className="space-y-0.5 min-h-[48px] sm:min-h-[54px] flex flex-col justify-start">
-                    <div className="font-mono text-[10px] text-white/40 uppercase tracking-wide truncate">
+                    <div className="font-mono text-[10px] text-white/60 uppercase tracking-wide truncate">
                       {member.role}
                     </div>
                     <h3 className="font-display font-black text-xs sm:text-sm md:text-base text-white tracking-tight uppercase group-hover:text-accent transition-colors duration-200 leading-snug line-clamp-2">

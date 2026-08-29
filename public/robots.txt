@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://reitendrei.sytes.net/sitemap.xml

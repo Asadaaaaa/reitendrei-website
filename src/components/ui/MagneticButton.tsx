@@ -78,9 +78,13 @@ export function MagneticButton({
     )
   }
 
-  return (
-    <button type="button" onClick={onClick} className="inline-block border-none bg-transparent p-0">
-      {content}
-    </button>
-  )
+  if (onClick) {
+    return (
+      <button type="button" onClick={onClick} className="inline-block border-none bg-transparent p-0">
+        {content}
+      </button>
+    )
+  }
+
+  return <div className="inline-block">{content}</div>
 }

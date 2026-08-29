@@ -2,7 +2,6 @@
 import { useEffect, useRef } from 'react'
 import { gsap } from '../../lib/animations'
 import { socials } from '../../data/socials'
-import { contactData } from '../../data/contact'
 import { X, ExternalLink, ArrowRight } from 'lucide-react'
 
 interface MobileMenuProps {
@@ -29,25 +28,13 @@ export function MobileMenu({ isOpen, onClose, onNavigate }: MobileMenuProps) {
 
     if (isOpen) {
       document.body.style.overflow = 'hidden'
-      gsap.to(el, {
-        opacity: 1,
-        pointerEvents: 'auto',
-        duration: 0.35,
-        ease: 'power3.out',
-      })
       gsap.fromTo(
         el.querySelectorAll('.mobile-nav-item'),
         { y: 30, opacity: 0 },
-        { y: 0, opacity: 1, duration: 0.4, stagger: 0.06, ease: 'power3.out', delay: 0.1 }
+        { y: 0, opacity: 1, duration: 0.4, stagger: 0.06, ease: 'power3.out', delay: 0.05 }
       )
     } else {
       document.body.style.overflow = ''
-      gsap.to(el, {
-        opacity: 0,
-        pointerEvents: 'none',
-        duration: 0.25,
-        ease: 'power2.in',
-      })
     }
   }, [isOpen])
 
@@ -61,8 +48,11 @@ export function MobileMenu({ isOpen, onClose, onNavigate }: MobileMenuProps) {
   return (
     <div
       ref={containerRef}
-      className="fixed inset-0 z-50 bg-background/98 backdrop-blur-xl opacity-0 pointer-events-none flex flex-col justify-between p-6 sm:p-12 overflow-y-auto"
+      className={`fixed inset-0 z-50 bg-background/98 backdrop-blur-xl flex flex-col justify-between p-6 sm:p-12 overflow-y-auto transition-all duration-300 ${
+        isOpen ? 'opacity-100 pointer-events-auto visible' : 'opacity-0 pointer-events-none invisible'
+      }`}
       aria-hidden={!isOpen}
+      inert={!isOpen}
     >
       {/* Top bar */}
       <div className="flex items-center justify-between border-b border-border/40 pb-6">

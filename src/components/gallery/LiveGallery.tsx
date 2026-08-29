@@ -87,7 +87,7 @@ export function LiveGallery() {
 
                   {/* Inspect Hover Button Center */}
                   <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10 pointer-events-none">
-                    <div className="flex items-center gap-1.5 px-4 py-2 rounded-xl bg-accent text-white font-mono text-xs font-bold uppercase tracking-wider shadow-xl shadow-accent/50 scale-90 group-hover:scale-100 transition-transform duration-300">
+                    <div className="flex items-center gap-1.5 px-4 py-2 rounded-xl bg-accent text-slate-950 font-mono text-xs font-black uppercase tracking-wider shadow-xl shadow-accent/50 scale-90 group-hover:scale-100 transition-transform duration-300">
                       <Eye size={14} />
                       <span>INSPECT</span>
                     </div>
