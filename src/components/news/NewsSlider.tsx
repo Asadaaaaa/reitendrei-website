@@ -13,10 +13,12 @@ export function NewsSlider() {
   const totalSlides = activeNews.length
 
   const handleNext = useCallback(() => {
+    if (totalSlides <= 1) return
     setCurrentIndex((prev) => (prev + 1) % totalSlides)
   }, [totalSlides])
 
   const handlePrev = useCallback(() => {
+    if (totalSlides <= 1) return
     setCurrentIndex((prev) => (prev - 1 + totalSlides) % totalSlides)
   }, [totalSlides])
 
@@ -28,12 +30,13 @@ export function NewsSlider() {
   }, [isPaused, handleNext, totalSlides])
 
   const handleTouchStart = (e: React.TouchEvent) => {
+    if (totalSlides <= 1) return
     touchStartX.current = e.touches[0].clientX
     setIsPaused(true)
   }
 
   const handleTouchEnd = (e: React.TouchEvent) => {
-    if (touchStartX.current === null) return
+    if (totalSlides <= 1 || touchStartX.current === null) return
     const diff = touchStartX.current - e.changedTouches[0].clientX
     if (diff > 50) handleNext()
     else if (diff < -50) handlePrev()
@@ -58,70 +61,76 @@ export function NewsSlider() {
         />
       ))}
 
-      {/* Progress Bar */}
-      <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-white/10 z-20">
-        <div
-          className="h-full bg-accent transition-all duration-300"
-          style={{ width: `${((currentIndex + 1) / totalSlides) * 100}%` }}
-        />
-      </div>
-
-      {/* Navigation Control Bar */}
-      <div className="absolute bottom-4 right-4 z-20 flex items-center gap-2 bg-background/80 backdrop-blur-md px-3 py-1.5 rounded-xl border border-white/10">
-        <span className="font-mono text-[11px] font-bold text-white/90 tabular-nums">
-          {String(currentIndex + 1).padStart(2, '0')}{' '}
-          <span className="text-white/40">/ {String(totalSlides).padStart(2, '0')}</span>
-        </span>
-
-        <div className="h-3 w-px bg-white/20" />
-
-        <button
-          type="button"
-          onClick={() => setIsPaused((p) => !p)}
-          className="p-1 text-white/60 hover:text-white transition-colors"
-          aria-label={isPaused ? 'Resume' : 'Pause'}
-        >
-          {isPaused ? <Play size={11} /> : <Pause size={11} />}
-        </button>
-
-        <div className="h-3 w-px bg-white/20" />
-
-        <div className="flex items-center gap-0.5">
-          <button
-            type="button"
-            onClick={handlePrev}
-            className="p-1.5 rounded-md hover:bg-white/10 text-white transition-colors"
-            aria-label="Previous"
-          >
-            <ChevronLeft size={14} />
-          </button>
-          <button
-            type="button"
-            onClick={handleNext}
-            className="p-1.5 rounded-md hover:bg-white/10 text-white transition-colors"
-            aria-label="Next"
-          >
-            <ChevronRight size={14} />
-          </button>
-        </div>
-      </div>
-
-      {/* Dot Indicators */}
-      <div className="absolute bottom-4 left-4 z-20 flex items-center gap-1.5">
-        {activeNews.map((_, idx) => (
-          <button
-            key={idx}
-            type="button"
-            onClick={() => setCurrentIndex(idx)}
-            aria-label={`Go to slide ${idx + 1}`}
-            className={`rounded-full transition-all duration-300 ${
-              idx === currentIndex
-                ? 'w-6 h-1.5 bg-accent'
-                : 'w-1.5 h-1.5 bg-white/30 hover:bg-white/60'
-            }`}
+      {/* Progress Bar (Only when multiple slides) */}
+      {totalSlides > 1 && (
+        <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-white/10 z-20">
+          <div
+            className="h-full bg-accent transition-all duration-300"
+            style={{ width: `${((currentIndex + 1) / totalSlides) * 100}%` }}
           />
-        ))}
-      </div>
+        </div>
+      )}
+
+      {/* Navigation Control Bar (Only when multiple slides) */}
+      {totalSlides > 1 && (
+        <div className="absolute bottom-4 right-4 z-20 flex items-center gap-2 bg-background/80 backdrop-blur-md px-3 py-1.5 rounded-xl border border-white/10">
+          <span className="font-mono text-[11px] font-bold text-white/90 tabular-nums">
+            {String(currentIndex + 1).padStart(2, '0')}{' '}
+            <span className="text-white/40">/ {String(totalSlides).padStart(2, '0')}</span>
+          </span>
+
+          <div className="h-3 w-px bg-white/20" />
+
+          <button
+            type="button"
+            onClick={() => setIsPaused((p) => !p)}
+            className="p-1 text-white/60 hover:text-white transition-colors"
+            aria-label={isPaused ? 'Resume' : 'Pause'}
+          >
+            {isPaused ? <Play size={11} /> : <Pause size={11} />}
+          </button>
+
+          <div className="h-3 w-px bg-white/20" />
+
+          <div className="flex items-center gap-0.5">
+            <button
+              type="button"
+              onClick={handlePrev}
+              className="p-1.5 rounded-md hover:bg-white/10 text-white transition-colors"
+              aria-label="Previous"
+            >
+              <ChevronLeft size={14} />
+            </button>
+            <button
+              type="button"
+              onClick={handleNext}
+              className="p-1.5 rounded-md hover:bg-white/10 text-white transition-colors"
+              aria-label="Next"
+            >
+              <ChevronRight size={14} />
+            </button>
+          </div>
+        </div>
+      )}
+
+      {/* Dot Indicators (Only when multiple slides) */}
+      {totalSlides > 1 && (
+        <div className="absolute bottom-4 left-4 z-20 flex items-center gap-1.5">
+          {activeNews.map((_, idx) => (
+            <button
+              key={idx}
+              type="button"
+              onClick={() => setCurrentIndex(idx)}
+              aria-label={`Go to slide ${idx + 1}`}
+              className={`rounded-full transition-all duration-300 ${
+                idx === currentIndex
+                  ? 'w-6 h-1.5 bg-accent'
+                  : 'w-1.5 h-1.5 bg-white/30 hover:bg-white/60'
+              }`}
+            />
+          ))}
+        </div>
+      )}
     </div>
   )
 }
