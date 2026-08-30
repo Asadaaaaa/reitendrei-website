@@ -21,12 +21,13 @@ export function ReleaseGallery() {
             title: row.title,
             subtitle: row.subtitle,
             year: row.year,
-            coverImage: row.cover_image,
+            image: row.cover_image || row.image,
             spotifyTrackId: row.spotify_track_id,
             spotifyUrl: row.spotify_url,
             youtubeUrl: row.youtube_url || undefined,
             description: row.description,
-            sonicCharacter: row.sonic_character,
+            sonicCharacter: row.sonic_character || '',
+            visualAccent: row.id === 'badjingan' ? '#ff4d29' : '#0ea5e9',
             themes: [],
           }))
           setItems(mapped)
