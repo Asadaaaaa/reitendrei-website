@@ -1,9 +1,34 @@
 'use client'
-import { members } from '../../data/members'
+import { useState, useEffect } from 'react'
+import { members as defaultMembers, type Member } from '../../data/members'
 import { Reveal } from '../motion/Reveal'
 import { Users } from 'lucide-react'
 
 export function MembersGallery() {
+  const [items, setItems] = useState<Member[]>(defaultMembers)
+
+  useEffect(() => {
+    fetch('/api/members')
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.success && Array.isArray(data.data) && data.data.length > 0) {
+          const mapped: Member[] = data.data.map((row: any, idx: number) => ({
+            id: row.id,
+            name: row.name,
+            role: row.role,
+            instrument: row.instrument,
+            number: String(idx + 1).padStart(2, '0'),
+            image: row.image,
+            quote: '',
+            focus: '',
+            bio: row.bio || '',
+          }))
+          setItems(mapped)
+        }
+      })
+      .catch((err) => console.error('Failed to load members:', err))
+  }, [])
+
   return (
     <section
       id="members"
@@ -31,9 +56,9 @@ export function MembersGallery() {
           </div>
         </Reveal>
 
-        {/* Symmetrical 5-Member Grid — 2-col mobile, 3-col tablet, 5-col desktop */}
+        {/* Symmetrical Member Grid */}
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-4 items-stretch">
-          {members.map((member, idx) => (
+          {items.map((member, idx) => (
             <Reveal key={member.id} direction="up" delay={idx * 0.06} className="h-full">
               <div className="group relative rounded-2xl overflow-hidden bg-surface border border-white/8 p-3 sm:p-3.5 flex flex-col justify-between h-full hover:border-accent/40 transition-all duration-500 shadow-xl hover:-translate-y-1">
                 {/* Fixed Ratio 4:5 Portrait */}
@@ -44,7 +69,9 @@ export function MembersGallery() {
                       alt={member.name}
                       className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-black/10 opacity-60 group-hover:opacity-80 transition-opacity" />
+
+                    {/* Gradient Overlay */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-background/95 via-transparent to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-300" />
 
                     {/* Instrument badge */}
                     <div className="absolute bottom-2.5 left-2.5 z-10">

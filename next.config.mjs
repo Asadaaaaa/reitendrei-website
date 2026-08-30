@@ -1,11 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'export',
-  distDir: 'dist',
+  serverExternalPackages: ['better-sqlite3', 'bcryptjs'],
   images: {
     unoptimized: true,
   },
-  trailingSlash: true,
 }
 
 export default nextConfig

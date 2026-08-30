@@ -1,15 +1,39 @@
 'use client'
 import { useState, useEffect, useRef, useCallback } from 'react'
-import { newsItems } from '../../data/news'
+import { newsItems as defaultNews, type NewsItem } from '../../data/news'
 import { NewsSlide } from './NewsSlide'
 import { ChevronLeft, ChevronRight, Play, Pause } from 'lucide-react'
 
 export function NewsSlider() {
+  const [items, setItems] = useState<NewsItem[]>(defaultNews)
   const [currentIndex, setCurrentIndex] = useState(0)
   const [isPaused, setIsPaused] = useState(false)
   const touchStartX = useRef<number | null>(null)
 
-  const activeNews = newsItems.filter((item) => item.active !== false)
+  useEffect(() => {
+    fetch('/api/news')
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.success && data.data && data.data.length > 0) {
+          const mapped: NewsItem[] = data.data.map((row: any) => ({
+            id: row.id,
+            category: row.category,
+            title: row.title,
+            date: row.date || undefined,
+            shortDescription: row.short_description || undefined,
+            description: row.description || undefined,
+            image: row.image,
+            ctaLabel: row.cta_label || undefined,
+            ctaUrl: row.cta_url || undefined,
+            active: Boolean(row.active),
+          }))
+          setItems(mapped)
+        }
+      })
+      .catch((err) => console.error('Failed to load news:', err))
+  }, [])
+
+  const activeNews = items.filter((item) => item.active !== false)
   const totalSlides = activeNews.length
 
   const handleNext = useCallback(() => {

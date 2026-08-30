@@ -1,7 +1,7 @@
 'use client'
-import { useState } from 'react'
-import { socials } from '../../data/socials'
-import { contactData } from '../../data/contact'
+import { useState, useEffect } from 'react'
+import { socials as defaultSocials } from '../../data/socials'
+import { contactData as defaultContact } from '../../data/contact'
 import { Reveal } from '../motion/Reveal'
 import { useLenis } from '../../hooks/useLenis'
 import { MagneticButton } from '../ui/MagneticButton'
@@ -10,9 +10,61 @@ import { Mail, ArrowUpRight, ArrowUp, Copy, Check, Sparkles } from 'lucide-react
 export function ContactSection() {
   const { scrollTo } = useLenis()
   const [copied, setCopied] = useState(false)
+  const [contact, setContact] = useState(defaultContact)
+  const [socialLinks, setSocialLinks] = useState(defaultSocials)
+
+  useEffect(() => {
+    fetch('/api/settings')
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.success && data.data) {
+          const s = data.data
+          if (s.contact_email) {
+            setContact((prev) => ({
+              ...prev,
+              email: s.contact_email,
+              description: s.contact_description || prev.description,
+            }))
+          }
+          if (s.instagram_url || s.youtube_url || s.tiktok_url || s.spotify_url) {
+            setSocialLinks([
+              {
+                name: 'Instagram',
+                handle: '@reitendrei',
+                url: s.instagram_url || 'https://instagram.com/reitendrei',
+                type: 'instagram',
+                description: 'Visual chronicles, gig announcements & backstage snapshots',
+              },
+              {
+                name: 'YouTube',
+                handle: '@reitendreiofficial',
+                url: s.youtube_url || 'https://youtube.com/@reitendreiofficial?si=k8AWNngPrkXf3kCk',
+                type: 'youtube',
+                description: 'Official music videos, live session archives & bootlegs',
+              },
+              {
+                name: 'TikTok',
+                handle: '@reiten.drei',
+                url: s.tiktok_url || 'https://tiktok.com/@reiten.drei',
+                type: 'tiktok',
+                description: 'Short-form twang riffs, studio outtakes & surf action',
+              },
+              {
+                name: 'Spotify',
+                handle: 'Reiten Drei',
+                url: s.spotify_url || 'https://open.spotify.com/track/7e5CxBlmNSDcT5nhwH3Tm2',
+                type: 'spotify',
+                description: 'Stream our complete single discography',
+              },
+            ])
+          }
+        }
+      })
+      .catch((err) => console.error('Failed to load settings:', err))
+  }, [])
 
   const handleCopyEmail = () => {
-    navigator.clipboard.writeText(contactData.email)
+    navigator.clipboard.writeText(contact.email)
     setCopied(true)
     setTimeout(() => setCopied(false), 2500)
   }
@@ -33,13 +85,13 @@ export function ContactSection() {
             <Reveal direction="up">
               <div className="flex items-center gap-2 font-mono text-[10px] text-accent uppercase tracking-widest">
                 <Mail size={13} />
-                <span>{contactData.label}</span>
+                <span>{contact.label}</span>
               </div>
               <h2 className="font-display font-black text-3xl sm:text-5xl md:text-6xl tracking-tighter uppercase text-white mt-2 leading-none">
-                {contactData.heading}
+                {contact.heading}
               </h2>
-              <p className="text-sm text-white/40 max-w-md mt-3 leading-relaxed font-light">
-                {contactData.description}
+              <p className="text-sm text-white/50 max-w-md mt-3 leading-relaxed font-light">
+                {contact.description}
               </p>
             </Reveal>
 
@@ -47,12 +99,12 @@ export function ContactSection() {
             <Reveal direction="up" delay={0.15}>
               <div className="flex flex-wrap items-center gap-3">
                 <a
-                  href={`mailto:${contactData.email}`}
+                  href={`mailto:${contact.email}`}
                   className="flex items-center gap-2.5 px-5 py-3 rounded-xl bg-surface border border-white/10 hover:border-accent text-white font-mono text-sm font-bold transition-all shadow-lg hover:shadow-accent/20"
                   data-cursor="link"
                 >
                   <Mail size={16} className="text-accent flex-shrink-0" />
-                  <span>{contactData.email}</span>
+                  <span>{contact.email}</span>
                   <ArrowUpRight size={15} className="text-white/30" />
                 </a>
 
@@ -78,68 +130,59 @@ export function ContactSection() {
             </Reveal>
 
             <Reveal direction="up" delay={0.2}>
-              <div className="flex items-center gap-2 font-mono text-[11px] text-white/30">
-                <Sparkles size={12} className="text-sky-400" />
-                <span>CONTACT PERSON: {contactData.contactPerson}</span>
+              <div className="pt-2 flex items-center gap-2 text-xs font-mono text-white/50">
+                <Sparkles size={13} className="text-accent" />
+                <span>Based in Bekasi, West Java // Available worldwide</span>
               </div>
             </Reveal>
           </div>
 
-          {/* Right: Social Channels */}
-          <div className="lg:col-span-5 space-y-3">
-            <Reveal direction="left" delay={0.1}>
-              <span className="font-mono text-[10px] text-white/30 uppercase tracking-widest block mb-3">
-                OFFICIAL CHANNELS
-              </span>
-            </Reveal>
-
-            <div className="space-y-2">
-              {socials.map((social, idx) => (
-                <Reveal key={social.name} direction="up" delay={0.1 + idx * 0.05}>
-                  <MagneticButton strength={12} className="w-full">
-                    <a
-                      href={social.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="group flex items-center justify-between p-4 rounded-xl bg-surface/40 border border-white/5 hover:border-accent/40 hover:bg-surface transition-all duration-300 w-full"
-                      data-cursor="link"
-                    >
-                      <div className="space-y-0.5">
-                        <div className="font-display font-bold text-base text-white group-hover:text-accent transition-colors">
-                          {social.name.toUpperCase()}
-                        </div>
-                        <div className="font-mono text-[11px] text-white/30">
-                          {social.handle}
-                        </div>
-                      </div>
-                      <div className="w-8 h-8 rounded-full border border-white/8 group-hover:border-accent group-hover:bg-accent/10 flex items-center justify-center text-white/30 group-hover:text-accent transition-all flex-shrink-0">
-                        <ArrowUpRight size={15} />
-                      </div>
-                    </a>
-                  </MagneticButton>
-                </Reveal>
-              ))}
-            </div>
+          {/* Right: Social & Channel Cards */}
+          <div className="lg:col-span-5 grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+            {socialLinks.map((social, idx) => (
+              <Reveal key={social.name} direction="up" delay={idx * 0.08} className="h-full">
+                <a
+                  href={social.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group relative p-4 rounded-2xl bg-surface border border-white/8 hover:border-accent/40 flex flex-col justify-between h-full transition-all duration-300 shadow-md hover:-translate-y-0.5"
+                  data-cursor="link"
+                >
+                  <div className="space-y-1">
+                    <div className="flex items-center justify-between text-white/40 group-hover:text-accent transition-colors">
+                      <span className="font-mono text-[10px] uppercase tracking-wider font-semibold">
+                        {social.name}
+                      </span>
+                      <ArrowUpRight size={14} className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                    </div>
+                    <div className="font-display font-bold text-sm text-white group-hover:text-accent transition-colors">
+                      {social.handle}
+                    </div>
+                  </div>
+                  <p className="text-[11px] text-white/50 leading-normal font-light pt-2 border-t border-white/5 mt-2">
+                    {social.description}
+                  </p>
+                </a>
+              </Reveal>
+            ))}
           </div>
         </div>
 
-        {/* Footer Bottom */}
-        <div className="border-t border-white/8 pt-10 space-y-8">
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
-            {/* Brand Block */}
-            <div className="space-y-2">
-              <span className="font-display font-black text-2xl sm:text-3xl text-white tracking-widest block">
-                REITEN DREI
-              </span>
-              <div className="font-mono text-[11px] text-white/30 space-y-0.5">
-                <div className="text-accent font-semibold">{contactData.genre.toUpperCase()}</div>
-                <div>{contactData.origin.toUpperCase()}</div>
-              </div>
+        {/* Footer Bottom Bar */}
+        <div className="pt-8 border-t border-white/8 space-y-6">
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
+            {/* Brand Logo in Footer */}
+            <div className="flex items-center">
+              <img
+                src="/images/brand/logo.webp"
+                alt="Reiten Drei"
+                className="h-9 w-auto object-contain"
+              />
             </div>
 
             {/* Quick Links */}
             <div className="flex flex-wrap gap-4 sm:gap-6 font-mono text-[11px] uppercase tracking-wider text-white/60">
-              {socials.map((social) => (
+              {socialLinks.map((social) => (
                 <a
                   key={social.name}
                   href={social.url}

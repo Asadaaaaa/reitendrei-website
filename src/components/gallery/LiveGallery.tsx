@@ -1,17 +1,39 @@
 'use client'
 import { useState, useEffect } from 'react'
-import { liveGalleryPhotos, type GalleryPhoto } from '../../data/gallery'
+import { liveGalleryPhotos as defaultPhotos, type GalleryPhoto } from '../../data/gallery'
 import { GalleryLightbox } from './GalleryLightbox'
 import { Reveal } from '../motion/Reveal'
 import { MagneticButton } from '../ui/MagneticButton'
 import { Camera, Eye, ChevronDown, Sparkles, Film } from 'lucide-react'
 
 export function LiveGallery() {
+  const [photos, setPhotos] = useState<GalleryPhoto[]>(defaultPhotos)
   const [selectedPhoto, setSelectedPhoto] = useState<GalleryPhoto | null>(null)
   const [isMobile, setIsMobile] = useState(false)
   const [visibleCount, setVisibleCount] = useState(6)
 
-  const isComingSoon = liveGalleryPhotos.length === 0
+  useEffect(() => {
+    fetch('/api/gallery')
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.success && Array.isArray(data.data)) {
+          const mapped: GalleryPhoto[] = data.data.map((row: any) => ({
+            id: row.id,
+            image: row.image,
+            type: row.type,
+            title: row.title,
+            date: row.date,
+            venue: row.venue,
+            description: row.description,
+            aspect: row.aspect || 'landscape',
+          }))
+          setPhotos(mapped)
+        }
+      })
+      .catch((err) => console.error('Failed to load gallery:', err))
+  }, [])
+
+  const isComingSoon = photos.length === 0
 
   useEffect(() => {
     const checkMobile = () => {
@@ -29,8 +51,8 @@ export function LiveGallery() {
     setVisibleCount((prev) => prev + (isMobile ? 3 : 6))
   }
 
-  const visiblePhotos = liveGalleryPhotos.slice(0, visibleCount)
-  const hasMore = visibleCount < liveGalleryPhotos.length
+  const visiblePhotos = photos.slice(0, visibleCount)
+  const hasMore = visibleCount < photos.length
 
   return (
     <section

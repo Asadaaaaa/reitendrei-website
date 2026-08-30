@@ -1,8 +1,32 @@
+'use client'
+import { useState, useEffect } from 'react'
 import { ReleaseGallery } from '../releases/ReleaseGallery'
 import { Reveal } from '../motion/Reveal'
 import { Disc3 } from 'lucide-react'
 
 export function BandStory() {
+  const [story, setStory] = useState({
+    hero_image: '/images/band/full-members.webp',
+    tagline: 'INDONESIAN SURF ROCK',
+    story_p1:
+      'Formed in Bekasi on August 25, 2024. Channeling coastal folklore, sharp social satire, youth freedom, and karma through high-octane reverb twangs and crashing wave rhythms.',
+  })
+
+  useEffect(() => {
+    fetch('/api/story')
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.success && data.data) {
+          setStory({
+            hero_image: data.data.hero_image || '/images/band/full-members.webp',
+            tagline: data.data.tagline || 'INDONESIAN SURF ROCK',
+            story_p1: data.data.story_p1 || story.story_p1,
+          })
+        }
+      })
+      .catch((err) => console.error('Failed to load story:', err))
+  }, [])
+
   return (
     <section
       id="story"
@@ -35,7 +59,7 @@ export function BandStory() {
               <div className="rounded-2xl overflow-hidden border border-white/8 bg-surface shadow-xl group">
                 <div className="aspect-[4/3] w-full overflow-hidden bg-background">
                   <img
-                    src="/images/band/full-members.webp"
+                    src={story.hero_image}
                     alt="Reiten Drei Full Members"
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                   />
@@ -48,7 +72,7 @@ export function BandStory() {
                     REITEN DREI
                   </h3>
                   <p className="text-sm text-white/60 leading-relaxed font-light">
-                    Formed in Bekasi on August 25, 2024. Channeling coastal folklore, sharp social satire, youth freedom, and karma through high-octane reverb twangs and crashing wave rhythms.
+                    {story.story_p1}
                   </p>
                 </div>
               </div>

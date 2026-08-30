@@ -36,3 +36,11 @@ node_modules/
 # Audit & downloaded browser binaries
 chrome/
 lighthouse-report.json
+
+# SQLite database & local storage
+data/*.db
+data/*.db-wal
+data/*.db-shm
+public/storage
+storage/
+
